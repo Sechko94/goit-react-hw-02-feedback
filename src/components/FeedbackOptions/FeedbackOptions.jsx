@@ -1,5 +1,5 @@
-import css from './FeedbackOptions.css'
-    ;
+import css from './FeedbackOptions.module.css';
+import PropTypes from 'prop-types';
 
 
 
@@ -13,7 +13,7 @@ export const FeedbackOptions = ({options, onLeaveFeedback}) => {
                             <button
                                 className={css.btn}
                                 type="button"
-                                onClick={onLeaveFeedback}
+                                onClick={() => onLeaveFeedback(option)}
                                 
                             > {option}</button>
                         </li>
@@ -24,3 +24,10 @@ export const FeedbackOptions = ({options, onLeaveFeedback}) => {
         )
     }
     
+
+
+
+    FeedbackOptions.types = {
+      options: PropTypes.arrayOf(PropTypes.string).isRequired,
+      onLeaveFeedback: PropTypes.func.isRequired,
+    };
